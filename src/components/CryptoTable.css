@@ -1,0 +1,38 @@
+.crypto-logo {
+    display: block;
+    max-width: 40px; /* Adjust as needed */
+    max-height: 40px; /* Adjust as needed */
+    margin: 0 auto; /* Center the logo in the cell */
+  }
+.crypto-table td:nth-child(3) { /* Target the 'Name' column (index 3) */
+    color: #333; /* Or any other dark, readable color */
+  }
+  .crypto-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .crypto-table th {
+    background-color: #f2f2f2; /* Keep the light background if you like */
+    color: #333; /* Set the header text color to a dark, readable color */
+    font-weight: bold; /* Make the header text bold for better emphasis */
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  .crypto-table th, .crypto-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .crypto-table th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Basic responsive adjustments (you can expand on this) */
+  @media (max-width: 768px) {
+    .crypto-table th:nth-child(n+8),
+    .crypto-table td:nth-child(n+8) {
+      display: none; /* Hide less critical columns on smaller screens */
+    }
+  }
