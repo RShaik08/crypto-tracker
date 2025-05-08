@@ -8,7 +8,7 @@ This is a responsive React application built with Redux Toolkit that tracks real
 
 1.  **Clone the repository:**
     ```bash
-    git clone ttps://github.com/RShaik08/crypto-tracker.git
+    git clone https://github.com/RShaik08/crypto-tracker.git
     cd crypto-tracker
     ```
 2.  **Install dependencies:**
