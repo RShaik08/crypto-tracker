@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Real-Time Crypto Price Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This is a responsive React application built with Redux Toolkit that tracks real-time cryptocurrency prices. It simulates WebSocket updates to provide a dynamic view of the market. The UI displays key information for several crypto assets in a sortable table, including price, percentage changes, market cap, volume, supply, and a basic 7-day price chart.
 
-In the project directory, you can run:
+## Setup Instructions
 
-### `npm start`
+1.  **Clone the repository:**
+    ```bash
+    git clone ttps://github.com/RShaik08/crypto-tracker.git
+    cd crypto-tracker
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+3.  **Start the development server:**
+    ```bash
+    npm start
+    # or
+    yarn start
+    ```
+4.  **Open your browser** and navigate to `http://localhost:3000` 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack and Architecture
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **React:** A JavaScript library for building user interfaces.
+* **Redux Toolkit:** A set of tools to simplify Redux development, including `createSlice` for defining reducers and actions, and `configureStore` for setting up the Redux store.
+* **React Redux Hooks:** (`useSelector`, `useDispatch`) for connecting React components to the Redux store.
+* **CSS:** For styling the user interface, including basic responsiveness using media queries.
+* **`cryptoData.json`:** A local JSON file containing the sample cryptocurrency data.
+* **`setInterval`:** Used to simulate real-time WebSocket updates by dispatching Redux actions at regular intervals.
 
-### `npm test`
+The application architecture follows a standard React/Redux pattern:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1.  **Components (`src/components`)**: The `CryptoTable` component is responsible for rendering the UI and displaying the cryptocurrency data fetched from the Redux store.
+2.  **Redux (`src/redux`)**:
+    * **`cryptoSlice.js`**: Defines the Redux slice, including the initial state (loaded from `cryptoData.json`), the `updatePrices` reducer to simulate price changes, and the corresponding action. It also includes logic to generate and update the simulated 7-day chart data.
+    * **`store.js`**: Configures the Redux store by combining the reducers from the different slices (in this case, only `cryptoSlice`).
+3.  **Data (`src/assets/cryptoData.json`)**: Contains the initial data for the cryptocurrency assets, including their logos, names, symbols, prices, and other relevant information.
+4.  **App (`src/App.js`)**: The main application component that renders the `CryptoTable`.
+5.  **Index (`src/index.js`)**: Sets up the Redux `Provider` to make the store available to all components and renders the `App`.
 
-### `npm run build`
+## Embedded Demo GIF or Video Link
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+(https://drive.google.com/file/d/1rXlEeKxKgQPUZaGQHatxjige3hOmvHl0/view?usp=sharing)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Enhancements Made (Per Skill Level)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **Dynamic Simulated 7D Chart:** Instead of a static SVG or image, a basic, dynamic 7-day price chart is simulated using `div` elements and updated with the price changes. This provides a visual representation of the price fluctuations over the simulated period.
+* **Basic Table Responsiveness:** The table includes basic CSS media queries to hide less critical columns (like Market Cap, Volume, and Supply) on smaller screen sizes to prevent horizontal scrolling and improve readability on mobile devices.
+* **Clear UI and Styling:** Basic CSS has been applied to ensure the table is readable, with color-coding for percentage changes and clear text for headers and data.
 
-### `npm run eject`
+## Further Potential Enhancements (Time Permitting)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* **Sorting:** Implementing the ability to sort the table columns (e.g., by price, market cap, % change).
+* **More Sophisticated Charting:** Integrating a proper charting library (like Chart.js or Recharts) for more visually appealing and informative charts.
+* **Optimized Selectors:** Creating more specific selectors in Redux to potentially optimize component re-renders, although with a small dataset, the current approach is efficient enough.
+* **More Comprehensive Responsiveness:** Implementing more advanced responsive design techniques to ensure the table adapts well to a wider range of screen sizes and orientations.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Developer Notes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* The real-time updates are simulated using `setInterval` and a simple function in the Redux slice to generate random changes. A real application would integrate with a WebSocket API for live data.
+* The 7-day chart data is also simulated and updated along with the price. Real historical data would be fetched from an API.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
